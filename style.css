@@ -14,40 +14,52 @@
 
 body {
     background-color: #000;
-    /* Fondo negro para los bordes */
     color: var(--ds-text);
     font-family: 'Jersey 10', 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     margin: 0;
     padding: 0;
-    /* Imagen de fondo de Firelink Shrine proporcionada por el usuario */
-    background-image: url('resources/firelink.png');
-    background-size: 100% auto;
-    /* Se adapta al ancho total respetando su proporción 4:3 */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top center;
-    image-rendering: pixelated;
+    /* Fondo base negro, las imágenes se añaden en capas superiores */
     position: relative;
+    min-height: 100vh;
 }
 
-/* Capa translúcida superior oscura con el patrón de puntos retro */
-body::before {
+/* Capas de fondo partido (Derecha e Izquierda) + Patrón de puntos */
+body::before,
+body::after {
     content: '';
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    width: 50%;
+    /* Cada mitad ocupa el 50% para fundirse en el centro */
     height: 100%;
-    /* Degradado oscuro más intenso + patrón de puntos */
-    background:
-        radial-gradient(rgba(0, 0, 0, 0.7) 1px, transparent 1px),
-        /* Puntos más visibles */
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-    /* Oscuridad general aumentada (60%) */
-    background-size: 10px 10px, 100% 100%;
     z-index: -1;
     pointer-events: none;
+    image-rendering: pixelated;
+}
+
+/* Mitad Izquierda */
+body::before {
+    left: 0;
+    background:
+        /* Capa de oscuridad y puntos */
+        radial-gradient(rgba(0, 0, 0, 0.7) 1px, transparent 1px) repeat,
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        /* Imagen de fondo procesada con fade hacia la derecha */
+        url('resources/firelink_left_fade.png') no-repeat left center;
+    background-size: 10px 10px, 100% 100%, auto 100vh;
+}
+
+/* Mitad Derecha */
+body::after {
+    right: 0;
+    background:
+        /* Capa de oscuridad y puntos */
+        radial-gradient(rgba(0, 0, 0, 0.7) 1px, transparent 1px) repeat,
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        /* Imagen de fondo procesada con fade hacia la izquierda */
+        url('resources/firelink_right_fade.png') no-repeat right center;
+    background-size: 10px 10px, 100% 100%, auto 100vh;
 }
 
 /* --- Tipografías para Encabezados --- */
