@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LIBRO DE VISITAS | Deja tu Marca</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Estilos específicos para el formulario retro */
+        form {
+            margin-top: 20px;
+        }
+
+        input,
+        textarea {
+            background: #000;
+            color: var(--ds-accent);
+            border: 2px solid var(--ds-border);
+            padding: 5px;
+            font-family: 'Jersey 10', monospace;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: var(--ds-accent);
+            color: #000;
+            border: 2px outset #fff;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+        }
+
+        button:active {
+            border-style: inset;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <marquee scrollamount="5">*** TU MARCA DE INVOCACIÓN HA SIDO ESCRITA *** QUE EL SOL TE PROTEJA *** NO
+                OLVIDES FIRMAR EL LIBRO ***</marquee>
+        </header>
+
+        <div id="wrapper">
+            <nav id="sidebar">
+                <div class="pixel-border section-title">MENU</div>
+                <ul>
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li><a href="lore.html">LORE</a></li>
+                    <li><a href="equipo.html">EQUIPO</a></li>
+                    <li><a href="libro.html">LIBRO DE VISITAS</a></li>
+                </ul>
+
+                <div class="stats">
+                    <p>ALMAS RECOLECTADAS</p>
+                    <div id="hit-counter">0000000</div>
+                </div>
+
+                <div class="status-img">
+                    <img src="../resources/bonfire.png" alt="Bonfire" class="bonfire-img">
+                </div>
+            </nav>
+
+            <main id="content">
+                <section class="pixel-border">
+                    <h1>LIBRO DE VISITAS</h1>
+                    <p>Deja una marca antes de seguir adelante. Tu mensaje perdurará en la hoguera.</p>
+
+                    <form id="guestbook-form">
+                        <label>Nombre del Viajero:</label>
+                        <input type="text" id="author-name" placeholder="Ej: Solaire">
+                        <label>Tu Mensaje:</label>
+                        <textarea rows="4" id="message-text" placeholder="¡Alabado sea el sol!"></textarea>
+                        <button type="submit">GRABAR MENSAJE</button>
+                    </form>
+                </section>
+
+                <div id="guestbook-messages">
+                    <!-- Los mensajes persistentes se cargarán aquí -->
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <div class="badges">
+                <img src="https://text.neocities.org/textbox/netscape.gif" alt="Netscape">
+                <img src="https://text.neocities.org/textbox/best_viewed_ie.gif" alt="IE">
+            </div>
+            <p>&copy; 2026 EL NO MUERTO ELEGIDO - HECHO CON DOLOR Y CÓDIGO</p>
+        </footer>
+    </div>
+
+    <!-- Scripts unificados -->
+    <script src="../counter.js"></script>
+    <script src="guestbook.js"></script>
+</body>
+
+</html>

@@ -1,48 +1,93 @@
-<html>
-
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-    <title>My Personal Project</title>
+    <meta charset="UTF-8">
+    <title>YOU DIED | Portfolio Retro</title>
+    <!-- Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Importación de tipografías desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- Hello World! -->
+    <!-- Contenedor principal que centra y enmarca la web -->
+    <div id="container">
 
-    <!-- <p>This text appear in paragraphs.</p>
-    <p>This is another one.</p>
-    <p><i>This text is italic.</i></p>
-    <p><b>This text is bold</b></p> -->
+        <!-- Sección de cabecera con la marquesina (marquee) clásica -->
+        <header>
+            <marquee scrollamount="5">*** BIENVENIDO A MI REINO OSCURO *** AVENTURERO, ACÉRCATE A LA HOGUERA *** ÚLTIMA
+                ACTUALIZACIÓN: 20 DE FEBRERO, 2026 ***</marquee>
+        </header>
 
-    <!-- <h1>My Personal Project</h1>
+        <!-- Envoltorio (wrapper) para dividir lateral (nav) y contenido (main) -->
+        <div id="wrapper">
 
-    <h2>About Me</h2>
-    <p>My name is Miguel Angel and I'm 26 years old.</p>
+            <!-- Barra lateral de navegación -->
+            <nav id="sidebar">
+                <div class="pixel-border section-title">MENU</div>
+                <ul>
+                    <!-- Los enlaces de navegación actualizados -->
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="pages/lore.html">LORE</a></li>
+                    <li><a href="pages/equipo.html">EQUIPO</a></li>
+                    <li><a href="pages/libro.html">LIBRO DE VISITAS</a></li>
+                </ul>
 
-    <h2>"Things I Like</h2>
-    <p>
-    <ul>
-        <li>Video Games</li>
-        <li>Lore Videos</li>
-        <li>Hamburguers</li>
-    </ul>
-    </p>
+                <!-- Sección de estadísticas / Contador de visitas -->
+                <div class="stats">
+                    <p>ALMAS RECOLECTADAS</p>
+                    <!-- El ID "hit-counter" es usado por counter.js para actualizar las visitas -->
+                    <div id="hit-counter">0000000</div>
+                </div>
 
-    <p>
-        <a href="http://google.com">This creates a link to Google.com.</a>
-    </p>
-    <p>
-        <img src="resources/slime.png">
-    </p> -->
+                <!-- Imagen de la Hoguera (Bonfire) -->
+                <div class="status-img">
+                    <img src="resources/bonfire.png" alt="Bonfire" class="bonfire-img">
+                </div>
+            </nav>
 
-    <div id="main">
-        <h1>A Beginner's Guide to HTML and CSS</h1>
+            <!-- Área de contenido principal -->
+            <main id="content">
+                <!-- Secciones enmarcadas con bordes estilo pixel -->
+                <section class="pixel-border">
+                    <h1>HUMANIDAD RESTAURADA</h1>
+                    <p>Has llegado a un refugio seguro. Descansa aquí antes de continuar tu viaje por la webmastery.</p>
+                </section>
 
-        <h2>Index</h2>
+                <section class="pixel-border">
+                    <h2 class="dark-souls-title">Acerca de Mí</h2>
+                    <p>Soy Miguel Angel, un No Muerto Elegido explorando los límites del código y el diseño retro. Me
+                        encantan los videojuegos, los videos de lore y las hamburguesas.</p>
+                </section>
+
+                <!-- Sección de "En Construcción" con estética Geocities -->
+                <section class="pixel-border construction">
+                    <img src="https://web.archive.org/web/20090829051759im_/http://geocities.com/Heartland/Plains/1435/undercon.gif"
+                        alt="Under Construction">
+                    <!-- La clase "blink" hace que el texto parpadee (definido en CSS) -->
+                    <p class="blink">PÁGINA EN CONSTRUCCIÓN - NO TE PIERDAS</p>
+                </section>
+            </main>
+        </div>
+
+        <!-- Pie de página (Footer) con insignias retro -->
+        <footer>
+            <div class="badges">
+                <!-- Insignias clásicas de Netscape e Internet Explorer -->
+                <img src="https://text.neocities.org/textbox/netscape.gif" alt="Netscape">
+                <img src="https://text.neocities.org/textbox/best_viewed_ie.gif" alt="IE">
+            </div>
+            <p>&copy; 2026 EL NO MUERTO ELEGIDO - HECHO CON DOLOR Y CÓDIGO</p>
+        </footer>
     </div>
+
+    <!-- Script de JavaScript para el contador de visitas persistente -->
+    <script src="counter.js"></script>
 </body>
 
 </html>
