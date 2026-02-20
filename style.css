@@ -331,3 +331,17 @@ a {
 a:hover {
     color: #fff;
 }
+/* Estilos específicos del Libro de Visitas */
+.guestbook-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.guestbook-iframe {
+    background: #000;
+    border: 2px inset var(--ds-border);
+    max-width: 800px;
+    width: 100%;
+}
