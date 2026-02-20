@@ -24,7 +24,7 @@ body {
     background-color: #000;
     color: var(--ds-text);
     font-family: 'Jersey 10', 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 0;
     /* Centrado flexible para evitar scroll innecesario */
     display: flex;
@@ -91,9 +91,9 @@ h2,
 #container {
     position: relative;
     z-index: 1;
-    width: min(900px, calc(100vw - 40px));
+    width: min(1100px, calc(100vw - 40px));
     /* Mantiene el look clásico sin salirse en pantallas pequeñas */
-    height: min(760px, calc(100vh - 40px));
+    height: min(850px, calc(100vh - 40px));
     /* Marco siempre visible dentro del viewport */
     margin: 20px;
     /* Margen mínimo de seguridad */
@@ -126,7 +126,7 @@ header {
 
 /* Barra Lateral */
 #sidebar {
-    width: 200px;
+    width: 220px;
     padding: 20px;
     border-right: 4px solid var(--ds-border);
     background-color: #0d0d0d;
