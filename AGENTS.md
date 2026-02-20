@@ -18,7 +18,7 @@ Rediseño de un portfolio personal con una estética **retro de los 2000 (estilo
 ### 2. Persistencia Estática (Neocities Ready)
 
 - **Contador de Almas**: Implementado un sistema **aleatorio** en `scripts/counter.js` que genera un número de almas entre 500k y 5M cada vez que se recarga la página.
-- **Libro de Visitas**: Global y persistente. Utiliza una base de datos externa (**Supabase**) conectada mediante API REST. Cualquier visitante puede ver y añadir mensajes que serán visibles para todos en tiempo real.
+- **Libro de Visitas**: Global y persistente. Utiliza el servicio **Atabook** integrado mediante un iframe para garantizar compatibilidad total con las políticas de seguridad de Neocities Free. Cualquiera puede leer y escribir.
 - **Sin Backend**: Se ha eliminado `server.js` y el uso de archivos `.txt` en el servidor para garantizar compatibilidad total con hosting estático.
 
 ### 3. Layout y Estética Retro

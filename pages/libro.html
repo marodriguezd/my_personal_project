@@ -75,18 +75,11 @@
                     <h1>LIBRO DE VISITAS</h1>
                     <p>Deja una marca antes de seguir adelante. Tu mensaje perdurará en la hoguera.</p>
 
-                    <form id="guestbook-form">
-                        <label>Nombre del Viajero:</label>
-                        <input type="text" id="author-name" placeholder="Ej: Solaire">
-                        <label>Tu Mensaje:</label>
-                        <textarea rows="4" id="message-text" placeholder="¡Alabado sea el sol!"></textarea>
-                        <button type="submit">GRABAR MENSAJE</button>
-                    </form>
+                    <div class="guestbook-container" style="margin-top: 20px;">
+                        <iframe src="https://rioldarz.atabook.org/" width="100%" height="600" frameborder="0"
+                            style="background: #000; border: 2px inset var(--ds-border);"></iframe>
+                    </div>
                 </section>
-
-                <div id="guestbook-messages">
-                    <!-- Los mensajes persistentes se cargarán aquí -->
-                </div>
             </main>
         </div>
 
@@ -101,7 +94,6 @@
 
     <!-- Scripts unificados -->
     <script src="../scripts/counter.js"></script>
-    <script src="../scripts/guestbook.js"></script>
 </body>
 
 </html>
