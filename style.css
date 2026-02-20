@@ -14,16 +14,25 @@
     /* Opacidad de la capa negra sobre el fondo (0.0 a 1.0) */
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     background-color: #000;
     color: var(--ds-text);
     font-family: 'Jersey 10', 'Courier New', Courier, monospace;
     font-size: 1.2rem;
-    margin: 0;
     padding: 0;
-    /* Fondo base negro, las imágenes se añaden en capas superiores */
+    /* Centrado flexible para evitar scroll innecesario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    /* Solo permite scroll si el contenido no cabe */
     position: relative;
-    min-height: 100vh;
 }
 
 /* Capas de fondo partido (Derecha e Izquierda) + Patrón de puntos */
@@ -84,7 +93,8 @@ h2,
     z-index: 1;
     width: 900px;
     /* Ancho fijo típico de las webs antiguas */
-    margin: 40px auto;
+    margin: 20px;
+    /* Margen mínimo de seguridad */
     border: 6px inset var(--ds-border);
     /* Borde que parece tallado en la página */
     background-color: rgba(5, 5, 5, 0.95);
