@@ -1,16 +1,25 @@
 /**
- * Sistema de Contador de Almas (ALEATORIO)
- * En lugar de persistir, genera un número aleatorio cada vez para dar esa sensación
- * de que hay millones de almas en el nexo.
+ * Sistema de Contador de Almas (TIEMPO DE VIDA)
+ * Calcula el total de horas transcurridas desde el 28 de agosto de 1999 a las 20:00.
  */
 document.addEventListener('DOMContentLoaded', () => {
     const counterElement = document.getElementById('hit-counter');
+    const birthDate = new Date('1999-08-28T20:00:00');
 
-    // Generar un número aleatorio grande (ej: entre 500,000 y 5,000,000)
-    const randomSouls = Math.floor(Math.random() * (5000000 - 500000 + 1)) + 500000;
+    function updateCounter() {
+        if (!counterElement) return;
 
-    // Mostrar con el formato retro (7 dígitos con ceros a la izquierda)
-    if (counterElement) {
-        counterElement.textContent = randomSouls.toString().padStart(7, '0');
+        const now = new Date();
+        const diffMs = now - birthDate;
+        const hours = Math.floor(diffMs / (1000 * 60 * 60));
+
+        // Mostrar con el formato retro (7 dígitos con ceros a la izquierda)
+        counterElement.textContent = hours.toString().padStart(7, '0');
     }
+
+    // Actualizar al cargar
+    updateCounter();
+
+    // Actualizar cada minuto para mantener la precisión
+    setInterval(updateCounter, 60000);
 });
