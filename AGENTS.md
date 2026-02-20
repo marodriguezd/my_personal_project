@@ -1,59 +1,45 @@
-# Proyecto: THE UNDEAD PORTFOLIO (Retro Dark Souls x Neocities)
+# Proyecto: MIGUEL | NO MUERTO (Retro Dark Souls x Neocities)
 
-Este documento resume el estado actual del proyecto, las decisiones técnicas clave y la estructura para futuras iteraciones en Neocities.
+Este documento resume el estado actual del proyecto, las decisiones técnicas clave y la estructura tras la integración del sistema de persistencia global.
 
 ## 🎯 Objetivo General
 
-Rediseño de un portfolio personal con una estética **retro de los 2000 (estilo GeoCities)** fusionada con la atmósfera oscura de **Dark Souls**. El sitio es 100% estático y compatible con **Neocities.org**.
+Rediseño de un portfolio personal con una estética **retro de los 2000 (estilo GeoCities)** fusionada con la atmósfera oscura de **Dark Souls**. El sitio es 100% compatible con el hosting estático de **Neocities.org**.
 
 ## 🛠️ Características Técnicas Implementadas
 
 ### 1. Sistema de Fondo "Split-Frame"
 
-- **Técnica**: La imagen `firelink.png` (4:3) se ha dividido en dos mitades (`firelink_left_fade.png` y `firelink_right_fade.png`) usando **ImageMagick**.
-- **Efecto**: Cada mitad está anclada a los laterales (`left` y `right`) con un degradado horizontal de transparencia hacia el centro. Esto crea un "marco" natural para el contenido.
-- **Escalado**: Se usa `background-size: auto 100vh` en el CSS para asegurar que el arte respete su proporción original sin zoom excesivo en pantallas panorámicas.
-- **Oscuridad Ajustable**: Existe una variable CSS `--ds-bg-darkness` en `:root` para controlar la opacidad del fondo de forma global.
+- **Técnica**: Imagen `firelink.png` dividida en dos mitades con degradado horizontal de transparencia hacia el centro.
+- **Escalado**: `background-size: auto 100vh` para respetar proporciones en cualquier resolución.
+- **Oscuridad**: Variable CSS `--ds-bg-darkness` para control global de la atmósfera.
 
-### 2. Persistencia Estática (Neocities Ready)
+### 2. Persistencia y Servicios Externos
 
-- **Contador de Almas**: Implementado un sistema **aleatorio** en `scripts/counter.js` que genera un número de almas entre 500k y 5M cada vez que se recarga la página.
-- **Libro de Visitas**: Global y persistente. Utiliza el servicio **Atabook** integrado mediante un iframe para garantizar compatibilidad total con las políticas de seguridad de Neocities Free. Cualquiera puede leer y escribir.
-- **Sin Backend**: Se ha eliminado `server.js` y el uso de archivos `.txt` en el servidor para garantizar compatibilidad total con hosting estático.
+- **Libro de Visitas Global**: Implementado mediante el servicio **Atabook** integrado vía `iframe`.
+  - **Causa**: Las cuentas gratuitas de Neocities bloquean conexiones directas a APIs externas (CSP), por lo que se descartó Supabase para garantizar compatibilidad total sin coste.
+  - **Personalización**: Diseño oscurecido y retro para integrarse con la estética del sitio.
+- **Contador de Almas**: Sistema aleatorio en `counter.js` (Simulación de almas recolectadas entre 500k y 5M).
 
-### 3. Layout y Estética Retro
+### 3. Narrativa y Estética Souls
 
-- **Estructura**: Basada en un contenedor centrado con `flexbox` para evitar scroll innecesario.
-- **Elementos Clásicos**: Marquesinas (`marquee`), bordes de "piedra" (`inset`), y efecto de parpadeo (`blink`).
-- **Tipografía**: 'Jersey 10' para legibilidad retro y 'Silkscreen' para encabezados.
-- **Hoguera (Bonfire)**: Imagen pixel art personalizada con efectos de aura en CSS.
+- **Crónicas del No Muerto (Lore)**: Contenido redactado con tono épico y melancólico, centrado en la perseverancia ante el código.
+- **Inventario (Equipo)**: Referencias temáticas a herramientas de desarrollo (VS Code, GitHub) y el "Anillo de la Voluntad del No Muerto" como símbolo de persistencia.
+- **UI Clean-up**: Eliminación de elementos corruptos e imágenes rotas (antiguas insignias de Netscape/IE) para un acabado pulido.
 
 ## 📂 Estructura del Proyecto
 
-- `/index.html`: Página principal.
-- `/style.css`: Estilos globales y capas de fondo.
+- `/index.html`: Página de inicio (Humanidad Restaurada).
+- `/style.css`: Estilos globales, tipografías 'Jersey 10' y 'Silkscreen'.
 - `/scripts/`:
-  - `counter.js`: Lógica del contador aleatorio.
-  - `guestbook.js`: Lógica del libro de visitas (localStorage).
+  - `counter.js`: Lógica del contador de almas.
 - `/pages/`:
-  - `lore.html`, `equipo.html`, `libro.html`.
-- `/resources/`:
-  - `firelink.png`: Imagen original.
-  - `firelink_left_fade.png` / `firelink_right_fade.png`: Fondos procesados.
-  - `bonfire.png`: Pixel art de la hoguera.
+  - `lore.html`: Crónicas del No Muerto.
+  - `equipo.html`: Inventario y herramientas.
+  - `libro.html`: Libro de visitas global (Atabook).
+- `/resources/`: Arte y assets procesados.
 
-## 📝 Comandos de Procesamiento (ImageMagick)
+## 📝 Notas de Mantenimiento
 
-Si se desea regenerar el fondo, se usó:
-
-```bash
-# Ejemplo para la mitad izquierda con fade horizontal
-convert resources/firelink.png -crop 120x169+0+0 resources/firelink_left.png
-convert -size 120x169 xc: -sparse-color Barycentric '0,0 white 119,0 black' resources/mask_left.png
-composite -compose CopyOpacity resources/mask_left.png resources/firelink_left.png resources/firelink_left_fade.png
-```
-
-## 🚀 Pendientes / Próximas Ideas
-
-- Integrar un servicio externo (como Cbox o SmartGuestbook) si se desea un libro de visitas compartido globalmente en Neocities.
-- Añadir pequeños "easter eggs" sonoros (pixel sound) al pasar el cursor por los botones.
+- Para cambiar la apariencia del libro de visitas, se debe acceder al panel de control de **Atabook.org**. Los cambios se reflejarán automáticamente en el sitio.
+- Se recomienda el uso de `Control + F5` tras subir cambios a Neocities para evitar problemas con la caché del navegador.
